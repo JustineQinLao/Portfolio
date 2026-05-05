@@ -1,0 +1,14 @@
+# OS files
+.DS_Store
+Thumbs.db
+
+# Editor folders
+.vscode/
+.idea/
+
+# Local server or dependency folders if ever added later
+node_modules/
+dist/
+
+# Private local notes and files
+private/

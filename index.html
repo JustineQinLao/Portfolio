@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Justine Nebres | Software Developer</title>
+    <meta
+      name="description"
+      content="Portfolio of Justine Nebres, a software developer building modern web apps, business systems, and AI-powered tools."
+    />
+    <script>
+      (function () {
+        const savedTheme = localStorage.getItem("theme");
+        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
+        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
+          document.documentElement.classList.add("dark");
+        }
+      })();
+      window.tailwind = window.tailwind || {};
+      window.tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              ink: "#0b1020",
+              mist: "#eff6ff",
+              cyan: "#22d3ee",
+              blueglow: "#2563eb",
+              neon: "#7c3aed",
+              panel: "#ffffff",
+              night: "#060816",
+            },
+            boxShadow: {
+              glow: "0 0 0 1px rgba(34,211,238,0.12), 0 16px 60px rgba(37,99,235,0.18)",
+            },
+            fontFamily: {
+              sans: ["Segoe UI", "Tahoma", "Geneva", "Verdana", "sans-serif"],
+            },
+          },
+        },
+      };
+    </script>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="./assets/css/styles.css" />
+  </head>
+  <body class="bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-night dark:text-slate-100">
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+      <div class="orb orb-one"></div>
+      <div class="orb orb-two"></div>
+      <div class="orb orb-three"></div>
+      <div class="grid-overlay"></div>
+    </div>
+
+    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/75 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/70">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
+        <a href="#top" class="font-space text-lg font-bold tracking-[0.25em] text-slate-900 dark:text-white">
+          JJN
+        </a>
+        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex dark:text-slate-300">
+          <a href="#about" class="hover:text-cyan-500">About</a>
+          <a href="#experience" class="hover:text-cyan-500">Experience</a>
+          <a href="#projects" class="hover:text-cyan-500">Projects</a>
+          <a href="#skills" class="hover:text-cyan-500">Skills</a>
+          <a href="#certifications" class="hover:text-cyan-500">Certifications</a>
+          <a href="#contact" class="hover:text-cyan-500">Contact</a>
+        </nav>
+        <div class="flex items-center gap-3">
+          <a
+            href="./assets/docs/Justine-Nebres-Resume.pdf"
+            download
+            class="hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 sm:inline-flex dark:border-slate-700 dark:text-slate-200"
+          >
+            Download Resume
+          </a>
+          <button
+            id="theme-toggle"
+            type="button"
+            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white/70 text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-200"
+            aria-label="Toggle color theme"
+          >
+            <span class="theme-icon theme-sun">☀</span>
+            <span class="theme-icon theme-moon hidden">☾</span>
+          </button>
+        </div>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="mx-auto max-w-7xl px-6 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
+        <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
+          <div class="reveal">
+            <p class="mb-4 inline-flex rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-1 text-sm font-semibold text-cyan-700 dark:text-cyan-300">
+              Software Developer • Full-Stack • AI Automation
+            </p>
+            <h1 class="font-space max-w-4xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">
+              I build scalable products that turn complex workflows into fast, usable software.
+            </h1>
+            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
+              I’m Justine Nebres, a developer focused on Angular, Django, and modern business systems.
+              I create responsive web apps, multi-tenant platforms, offline-first tools, and AI-powered
+              experiences for both employers and clients.
+            </p>
+            <div class="mt-8 flex flex-wrap gap-4">
+              <a
+                href="#projects"
+                class="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-500 dark:bg-cyan-400 dark:text-slate-950"
+              >
+                View Selected Projects
+              </a>
+              <a
+                href="#contact"
+                class="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-700 dark:text-slate-200"
+              >
+                Let’s Work Together
+              </a>
+            </div>
+            <div class="mt-10 grid gap-4 sm:grid-cols-3">
+              <div class="metric-card">
+                <span class="metric-number">9+</span>
+                <span class="metric-label">Featured projects across SaaS, AI, and business tools</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number">2024+</span>
+                <span class="metric-label">Professional software development experience</span>
+              </div>
+              <div class="metric-card">
+                <span class="metric-number">Multi-stack</span>
+                <span class="metric-label">Angular, Django, Docker, Tailwind, PostgreSQL</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="reveal relative">
+            <div class="hero-panel rounded-[2rem] border border-white/60 bg-white/75 p-6 shadow-glow backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/70">
+              <div class="hero-profile-wrap">
+                <div class="avatar-ring avatar-ring-large">
+                  <div class="avatar-core avatar-core-large">
+                    <img src="./assets/images/profile.jpg" alt="Portrait of Justine Nebres" class="avatar-image" />
+                  </div>
+                </div>
+                <div class="profile-glow"></div>
+              </div>
+              <div class="flex items-center gap-5">
+                <div>
+                  <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-300">
+                    Available for
+                  </p>
+                  <h2 class="mt-2 text-2xl font-bold text-slate-950 dark:text-white">Full-time roles and freelance builds</h2>
+                </div>
+              </div>
+              <div class="mt-8 space-y-4">
+                <div class="info-chip">
+                  <span>Email</span>
+                  <a href="mailto:justinenebres80@gmail.com">justinenebres80@gmail.com</a>
+                </div>
+                <div class="info-chip">
+                  <span>Location</span>
+                  <p>Albay, Philippines</p>
+                </div>
+                <div class="info-chip">
+                  <span>Focus</span>
+                  <p>Business systems, automation, AI tooling, and polished frontends</p>
+                </div>
+              </div>
+              <div class="mt-8 grid gap-3 sm:grid-cols-2">
+                <a
+                  href="https://github.com/JustineQinLao"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="rounded-2xl border border-slate-200 px-4 py-4 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-800 dark:text-slate-200"
+                >
+                  GitHub
+                </a>
+                <a
+                  href="https://www.linkedin.com/in/justine-john-nebres-766562294"
+                  target="_blank"
+                  rel="noreferrer"
+                  class="rounded-2xl border border-slate-200 px-4 py-4 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-800 dark:text-slate-200"
+                >
+                  LinkedIn
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="about" class="mx-auto max-w-7xl px-6 py-10 lg:px-8">
+        <div class="reveal rounded-[2rem] border border-slate-200/70 bg-white/75 p-8 shadow-glow backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/70">
+          <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
+            <div>
+              <p class="section-kicker">About</p>
+              <h2 class="section-title">A developer who likes turning hard problems into clear products.</h2>
+              <p class="section-copy">
+                My work spans multi-tenant SaaS platforms, offline-ready tools, workflow automation, and AI-assisted apps.
+                I enjoy building systems that are clean on the inside and intuitive on the outside, with strong attention to
+                performance, architecture, and real-world usability.
+              </p>
+            </div>
+            <div class="grid gap-4 sm:grid-cols-2">
+              <div class="glass-card">
+                <h3>What I bring</h3>
+                <p>Full-stack delivery from architecture and APIs to responsive UI, deployment, and iteration.</p>
+              </div>
+              <div class="glass-card">
+                <h3>Preferred stack</h3>
+                <p>Angular, Django REST, Tailwind CSS, PostgreSQL, Docker, and modern deployment workflows.</p>
+              </div>
+              <div class="glass-card">
+                <h3>Degree</h3>
+                <p>BS Computer Science, Bicol University College of Science, Cum Laude.</p>
+              </div>
+              <div class="glass-card">
+                <h3>Interests</h3>
+                <p>AI tooling, automation systems, product design, offline-first experiences, and workflow-heavy platforms.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section id="experience" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 reveal">
+          <p class="section-kicker">Experience</p>
+          <h2 class="section-title">Professional work focused on production systems and client delivery.</h2>
+        </div>
+        <div class="grid gap-8 lg:grid-cols-2">
+          <article class="reveal timeline-card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Software Developer</h3>
+                <p class="mt-1 text-base font-medium text-cyan-600 dark:text-cyan-300">Synergia BPO Solutions Inc.</p>
+              </div>
+              <p class="timeline-date">Feb 2024 - Present</p>
+            </div>
+            <ul class="timeline-list">
+              <li>Built and maintained multi-tenant platforms with Angular and Django for client-facing business workflows.</li>
+              <li>Developed responsive frontend systems using Tailwind CSS and reusable component patterns.</li>
+              <li>Implemented REST APIs, role-based access control, workflow automation, and real-time notifications.</li>
+              <li>Handled containerized deployment and delivery using Docker, NGINX, and cloud-ready configurations.</li>
+            </ul>
+          </article>
+          <article class="reveal timeline-card">
+            <div class="flex items-start justify-between gap-6">
+              <div>
+                <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Education and Training</h3>
+                <p class="mt-1 text-base font-medium text-cyan-600 dark:text-cyan-300">Bicol University College of Science</p>
+              </div>
+              <p class="timeline-date">2020 - 2023</p>
+            </div>
+            <ul class="timeline-list">
+              <li>Graduated with a BS in Computer Science as Cum Laude and Dean’s Lister.</li>
+              <li>Completed a thesis on sweetpotato variety classification using ResNet50 CNN and TensorFlow Lite.</li>
+              <li>Earned wireless networking certifications including OCNA Wireless and TP-Link Network Associate.</li>
+            </ul>
+          </article>
+        </div>
+      </section>
+
+      <section id="projects" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 reveal">
+          <p class="section-kicker">Selected Projects</p>
+          <h2 class="section-title">Selected projects that show range, product thinking, and technical depth.</h2>
+          <p class="section-copy max-w-3xl">
+            I prioritized complete, non-redundant work from your personal and official folders to keep this portfolio focused and credible.
+          </p>
+        </div>
+
+        <div class="grid gap-6 lg:grid-cols-2">
+          <article class="reveal project-card project-card-featured">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">AI Product Studio</p>
+              <span class="project-badge">Personal</span>
+            </div>
+            <h3>InkForge</h3>
+            <p>
+              An AI writing studio for long-form fiction with chapter pipelines, worldbuilding tools, canon extraction,
+              async job queues, progress streaming, and version-aware content workflows.
+            </p>
+            <div class="tag-row">
+              <span>Angular 21</span><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span><span>Redis</span><span>Docker</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card project-card-featured">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Tourism Platform</p>
+              <span class="project-badge">Official</span>
+            </div>
+            <h3>Viaje Super App</h3>
+            <p>
+              A multi-service booking ecosystem for accommodations, tours, guides, vehicles, and ticketing with multi-tenant
+              architecture, admin workflows, PWA support, and modular Angular delivery.
+            </p>
+            <div class="tag-row">
+              <span>Angular 21</span><span>Django REST</span><span>django-tenants</span><span>PostgreSQL</span><span>Docker</span><span>NGINX</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Civic Marketplace</p>
+              <span class="project-badge">Personal</span>
+            </div>
+            <h3>TaskHero Platform</h3>
+            <p>
+              A barangay-focused task marketplace with role-based portals, task lifecycle management, wallet flows,
+              ratings, reports, and admin tools designed for structured community service workflows.
+            </p>
+            <div class="tag-row">
+              <span>Angular 21</span><span>Django</span><span>DRF</span><span>JWT</span><span>PostgreSQL</span><span>Docker</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Transport Platform</p>
+              <span class="project-badge">Official</span>
+            </div>
+            <h3>TodaApp</h3>
+            <p>
+              A role-based transport dispatch and booking platform with passenger, driver, dispatcher, and admin flows,
+              route operations, assignments, transactions, and mobile-friendly progressive web app support.
+            </p>
+            <div class="tag-row">
+              <span>Angular 19</span><span>PocketBase</span><span>Tailwind</span><span>Flowbite</span><span>PWA</span><span>Service Worker</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Offline POS</p>
+              <span class="project-badge">Personal</span>
+            </div>
+            <h3>POS CoffeeShop</h3>
+            <p>
+              An offline-first point of sale system for small businesses with inventory, receipts, backups, reporting,
+              and cross-platform support across web, Android, and desktop.
+            </p>
+            <div class="tag-row">
+              <span>Angular 19</span><span>Tailwind CSS</span><span>IndexedDB</span><span>Capacitor</span><span>Electron</span><span>Docker</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Legal SaaS</p>
+              <span class="project-badge">Official</span>
+            </div>
+            <h3>Lexify</h3>
+            <p>
+              A legal client onboarding platform for law firms with inquiries, appointments, engagement setup, task flows,
+              service intake, permissions, calendars, and structured dashboard workflows.
+            </p>
+            <div class="tag-row">
+              <span>Angular 19</span><span>Django</span><span>PostgreSQL</span><span>Angular Material</span><span>Docker</span><span>FullCalendar</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Website Builder</p>
+              <span class="project-badge">Personal</span>
+            </div>
+            <h3>Micro Website Builder</h3>
+            <p>
+              A CMS-style website builder that lets admins upload annotated HTML templates and turn them into editable client
+              sites with structured content controls and reusable page sections.
+            </p>
+            <div class="tag-row">
+              <span>Angular 21</span><span>Django 5</span><span>DRF</span><span>Tailwind 4</span><span>PostgreSQL</span><span>BeautifulSoup</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Mobile Product</p>
+              <span class="project-badge">Personal</span>
+            </div>
+            <h3>Memory Booth</h3>
+            <p>
+              An Android-first photo booth app with native camera access, pricing logic, admin controls, transaction tracking,
+              and event-oriented flow for real business operations.
+            </p>
+            <div class="tag-row">
+              <span>Angular</span><span>Capacitor</span><span>Tailwind</span><span>IndexedDB</span><span>Docker</span>
+            </div>
+          </article>
+
+          <article class="reveal project-card">
+            <div class="flex items-center justify-between gap-4">
+              <p class="project-type">Learning App</p>
+              <span class="project-badge">Personal</span>
+            </div>
+            <h3>Talas</h3>
+            <p>
+              A Flutter-based mobile learning app focused on the Filipino alphabet and vocabulary, with guided onboarding,
+              avatar selection, learner personalization, and persistent progress state using local storage.
+            </p>
+            <div class="tag-row">
+              <span>Flutter</span><span>Dart</span><span>SharedPreferences</span><span>Mobile UI</span><span>Android</span><span>iOS</span>
+            </div>
+          </article>
+        </div>
+      </section>
+
+      <section id="skills" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 reveal">
+          <p class="section-kicker">Skills</p>
+          <h2 class="section-title">Tools I use to design, build, ship, and improve products.</h2>
+        </div>
+        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
+          <div class="reveal skill-card">
+            <h3>Frontend</h3>
+            <p>Angular, TypeScript, Tailwind CSS, Flowbite, Angular Material, responsive UI, component architecture.</p>
+          </div>
+          <div class="reveal skill-card">
+            <h3>Backend</h3>
+            <p>Django, Django REST Framework, NestJS, JWT auth, multi-tenant systems, SQL, PostgreSQL, PocketBase.</p>
+          </div>
+          <div class="reveal skill-card">
+            <h3>DevOps</h3>
+            <p>Docker, Docker Compose, NGINX, EC2 basics, containerized deployments, environment setup, production delivery.</p>
+          </div>
+          <div class="reveal skill-card">
+            <h3>AI and Automation</h3>
+            <p>LLM workflows, MCP, TensorFlow, TensorFlow Lite, Redis queues, speech and automation integrations, prompt design.</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="certifications" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
+        <div class="mb-12 reveal">
+          <p class="section-kicker">Certifications</p>
+          <h2 class="section-title">View each certificate on demand.</h2>
+          <p class="section-copy max-w-3xl">
+            Use the buttons below to open a specific certificate without cluttering the page.
+          </p>
+        </div>
+        <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
+          <div class="reveal certifications-panel">
+            <button
+              type="button"
+              class="certificate-button active"
+              data-certificate-title="OCNA Wireless"
+              data-certificate-file="./assets/docs/OCNA Wireless_Justine John Nebres.pdf"
+            >
+              OCNA Wireless
+            </button>
+            <button
+              type="button"
+              class="certificate-button"
+              data-certificate-title="TPNA Enterprise Wireless"
+              data-certificate-file="./assets/docs/TPNA Enterprise Wireless_Justine John Nebres.pdf"
+            >
+              TPNA Enterprise Wireless
+            </button>
+          </div>
+          <div class="reveal certificate-viewer-card">
+            <div class="certificate-viewer-head">
+              <div>
+                <p class="section-kicker">Selected</p>
+                <h3 id="certificate-title" class="font-space text-2xl font-bold text-slate-950 dark:text-white">
+                  OCNA Wireless
+                </h3>
+              </div>
+              <a
+                id="certificate-open-link"
+                href="./assets/docs/OCNA Wireless_Justine John Nebres.pdf"
+                target="_blank"
+                rel="noreferrer"
+                class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-700 dark:text-slate-200"
+              >
+                Open in New Tab
+              </a>
+            </div>
+            <iframe
+              id="certificate-frame"
+              src="./assets/docs/OCNA Wireless_Justine John Nebres.pdf"
+              title="Certificate Viewer"
+              class="certificate-frame"
+              loading="lazy"
+            ></iframe>
+          </div>
+        </div>
+      </section>
+
+      <section id="contact" class="mx-auto max-w-7xl px-6 pb-24 pt-10 lg:px-8">
+        <div class="reveal rounded-[2rem] border border-cyan-400/30 bg-slate-950 p-10 text-white shadow-glow dark:border-cyan-300/20 dark:bg-slate-900">
+          <p class="section-kicker text-cyan-300">Contact</p>
+          <h2 class="font-space text-3xl font-bold md:text-4xl">Open to roles, collaborations, and ambitious product work.</h2>
+          <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">
+            If you’re hiring or need a developer who can build from concept to deployment, I’d be glad to connect.
+          </p>
+          <div class="mt-8 flex flex-wrap gap-4">
+            <a
+              href="mailto:justinenebres80@gmail.com"
+              class="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
+            >
+              justinenebres80@gmail.com
+            </a>
+            <a
+              href="https://github.com/JustineQinLao"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+            >
+              GitHub
+            </a>
+            <a
+              href="https://www.linkedin.com/in/justine-john-nebres-766562294"
+              target="_blank"
+              rel="noreferrer"
+              class="rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
+            >
+              LinkedIn
+            </a>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <script src="./assets/js/script.js"></script>
+  </body>
+</html>
