@@ -1,533 +1,507 @@
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Justine Nebres | Software Developer</title>
-    <meta
-      name="description"
-      content="Portfolio of Justine Nebres, a software developer building modern web apps, business systems, and AI-powered tools."
-    />
-    <script>
-      (function () {
-        const savedTheme = localStorage.getItem("theme");
-        const prefersDark = window.matchMedia("(prefers-color-scheme: dark)").matches;
-        if (savedTheme === "dark" || (!savedTheme && prefersDark)) {
-          document.documentElement.classList.add("dark");
-        }
-      })();
-      window.tailwind = window.tailwind || {};
-      window.tailwind.config = {
-        darkMode: "class",
-        theme: {
-          extend: {
-            colors: {
-              ink: "#0b1020",
-              mist: "#eff6ff",
-              cyan: "#22d3ee",
-              blueglow: "#2563eb",
-              neon: "#7c3aed",
-              panel: "#ffffff",
-              night: "#060816",
-            },
-            boxShadow: {
-              glow: "0 0 0 1px rgba(34,211,238,0.12), 0 16px 60px rgba(37,99,235,0.18)",
-            },
-            fontFamily: {
-              sans: ["Segoe UI", "Tahoma", "Geneva", "Verdana", "sans-serif"],
-            },
-          },
-        },
-      };
-    </script>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;700&family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="stylesheet" href="./assets/css/styles.css" />
-  </head>
-  <body class="bg-slate-50 text-slate-900 transition-colors duration-300 dark:bg-night dark:text-slate-100">
-    <div class="fixed inset-0 -z-10 overflow-hidden">
-      <div class="orb orb-one"></div>
-      <div class="orb orb-two"></div>
-      <div class="orb orb-three"></div>
-      <div class="grid-overlay"></div>
-    </div>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Justine Nebres | Software Developer</title>
+<meta name="description" content="Justine Nebres builds multi-tenant SaaS, POS, and booking systems with Angular and Django." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,400;12..96,600;12..96,800&family=IBM+Plex+Sans:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --paper: #eef1f4;
+    --surface: #ffffff;
+    --ink: #1b2433;
+    --muted: #5a6577;
+    --line: #d5dbe3;
+    --cobalt: #2b44d6;
+    --cobalt-soft: #e3e7fb;
+    --mark: #ffe45c;
+    --receipt: #fdfdfb;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --paper: #141a24; --surface: #1c2330; --ink: #e8ecf2; --muted: #9aa5b8;
+      --line: #2c3545; --cobalt: #8a9bff; --cobalt-soft: #232c4a; --receipt: #f4f4ef;
+    }
+  }
+  :root[data-theme="dark"] {
+    --paper: #141a24; --surface: #1c2330; --ink: #e8ecf2; --muted: #9aa5b8;
+    --line: #2c3545; --cobalt: #8a9bff; --cobalt-soft: #232c4a; --receipt: #f4f4ef;
+  }
 
-    <header class="sticky top-0 z-50 border-b border-slate-200/70 bg-white/75 backdrop-blur-xl dark:border-slate-800 dark:bg-slate-950/70">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-4 lg:px-8">
-        <a href="#top" class="font-space text-lg font-bold tracking-[0.25em] text-slate-900 dark:text-white">
-          JJN
-        </a>
-        <nav class="hidden items-center gap-6 text-sm font-medium text-slate-600 md:flex dark:text-slate-300">
-          <a href="#about" class="hover:text-cyan-500">About</a>
-          <a href="#experience" class="hover:text-cyan-500">Experience</a>
-          <a href="#projects" class="hover:text-cyan-500">Projects</a>
-          <a href="#skills" class="hover:text-cyan-500">Skills</a>
-          <a href="#certifications" class="hover:text-cyan-500">Certifications</a>
-          <a href="#contact" class="hover:text-cyan-500">Contact</a>
-        </nav>
-        <div class="flex items-center gap-3">
-          <a
-            href="./assets/docs/Justine-Nebres-Resume.pdf"
-            download
-            class="hidden rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 sm:inline-flex dark:border-slate-700 dark:text-slate-200"
-          >
-            Download Resume
-          </a>
-          <button
-            id="theme-toggle"
-            type="button"
-            class="inline-flex h-11 w-11 items-center justify-center rounded-full border border-slate-300 bg-white/70 text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-700 dark:bg-slate-900/80 dark:text-slate-200"
-            aria-label="Toggle color theme"
-          >
-            <span class="theme-icon theme-sun">☀</span>
-            <span class="theme-icon theme-moon hidden">☾</span>
-          </button>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--paper); color: var(--ink);
+    font: 400 1.0625rem/1.65 "IBM Plex Sans", system-ui, sans-serif;
+    -webkit-font-smoothing: antialiased;
+  }
+  a { color: inherit; }
+  :focus-visible { outline: 3px solid var(--cobalt); outline-offset: 3px; border-radius: 4px; }
+  .wrap { max-width: 1160px; margin: 0 auto; padding: 0 24px; }
+  h1, h2, h3 { font-family: "Bricolage Grotesque", sans-serif; line-height: 1.08; letter-spacing: -0.02em; }
+
+  /* nav */
+  .nav { display: flex; justify-content: space-between; align-items: center; padding: 22px 0; }
+  .nav-name { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 1.15rem; text-decoration: none; }
+  .nav-links { display: flex; gap: 28px; align-items: center; font-size: .95rem; }
+  .nav-links a { text-decoration: none; color: var(--muted); }
+  .nav-links a:hover { color: var(--ink); }
+  .theme-btn { background: none; border: 1px solid var(--line); color: var(--ink); width: 38px; height: 38px; border-radius: 50%; cursor: pointer; font-size: 1rem; }
+
+  /* hero */
+  .hero { display: grid; grid-template-columns: 1.2fr .8fr; gap: 64px; align-items: center; padding: 56px 0 96px; }
+  .status { display: inline-flex; align-items: center; gap: 10px; font-size: .95rem; color: var(--muted); margin-bottom: 28px; }
+  .status::before { content: ""; width: 9px; height: 9px; border-radius: 50%; background: #1fa463; box-shadow: 0 0 0 4px rgba(31,164,99,.18); }
+  .hero h1 { font-size: clamp(2.6rem, 6vw, 4.6rem); font-weight: 800; max-width: 13ch; }
+  .hero-lede { margin-top: 28px; font-size: 1.2rem; color: var(--muted); max-width: 52ch; }
+  .hero-lede strong { color: var(--ink); font-weight: 600; }
+  .actions { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 36px; }
+  .btn { display: inline-flex; align-items: center; padding: 14px 24px; border-radius: 10px; font-weight: 600; font-size: .98rem; text-decoration: none; transition: transform .15s, background .15s; }
+  .btn-primary { background: var(--cobalt); color: #fff; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-ghost { border: 1.5px solid var(--ink); }
+  .btn-ghost:hover { background: var(--ink); color: var(--paper); }
+  .hero-facts { display: flex; flex-wrap: wrap; gap: 8px 28px; margin-top: 40px; font-size: .95rem; color: var(--muted); }
+  .hero-facts b { color: var(--ink); font-weight: 600; }
+
+  /* receipt: the one loud moment */
+  .printer { position: relative; justify-self: center; width: 100%; max-width: 340px; }
+  .printer-slot { height: 18px; background: var(--ink); border-radius: 10px; position: relative; z-index: 2; }
+  .receipt-clip { overflow: hidden; margin: -9px 14px 0; }
+  .receipt {
+    background: var(--receipt); color: #23262b; padding: 30px 24px 20px;
+    font: 400 .82rem/1.55 "IBM Plex Mono", monospace;
+    box-shadow: 0 18px 40px rgba(20,30,50,.18);
+    animation: print 2.4s steps(24) .3s both;
+    -webkit-mask: radial-gradient(circle 7px at 50% 100%, transparent 98%, #000) 0 0 / 18px 100% repeat-x;
+            mask: radial-gradient(circle 7px at 50% 100%, transparent 98%, #000) 0 0 / 18px 100% repeat-x;
+    padding-bottom: 34px;
+  }
+  @keyframes print { from { transform: translateY(-100%); } to { transform: translateY(0); } }
+  .receipt img { width: 72px; height: 72px; border-radius: 50%; object-fit: cover; display: block; margin: 0 auto 12px; filter: grayscale(1) contrast(1.1); }
+  .receipt .center { text-align: center; }
+  .receipt .big { font-size: 1.05rem; font-weight: 500; }
+  .receipt hr { border: 0; border-top: 1.5px dashed #9aa0a8; margin: 12px 0; }
+  .receipt .row { display: flex; justify-content: space-between; gap: 12px; }
+  .receipt .row span:last-child { text-align: right; }
+  .receipt .total { font-weight: 500; font-size: .95rem; }
+  .barcode { height: 38px; margin-top: 14px; background: repeating-linear-gradient(90deg, #23262b 0 2px, transparent 2px 4px, #23262b 4px 5px, transparent 5px 8px, #23262b 8px 11px, transparent 11px 12px); }
+
+  /* sections */
+  section { padding: 88px 0; border-top: 1px solid var(--line); }
+  .sec-head { display: grid; grid-template-columns: 280px 1fr; gap: 48px; margin-bottom: 48px; }
+  .sec-head h2 { font-size: clamp(1.9rem, 3.4vw, 2.6rem); font-weight: 800; }
+  .sec-head p { color: var(--muted); max-width: 60ch; align-self: end; }
+
+  /* case studies */
+  .case { display: grid; grid-template-columns: 280px 1fr; gap: 48px; padding: 44px 0; border-top: 1px solid var(--line); }
+  .case:first-of-type { border-top: 0; padding-top: 0; }
+  .case-meta { font-size: .92rem; color: var(--muted); }
+  .case-meta .kind { display: inline-block; background: var(--cobalt-soft); color: var(--cobalt); font-weight: 600; padding: 3px 10px; border-radius: 6px; margin-bottom: 14px; }
+  .case h3 { font-size: 2rem; font-weight: 800; margin-bottom: 14px; }
+  .case-body > p { max-width: 64ch; color: var(--muted); }
+  .wins { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 14px 32px; margin: 26px 0; }
+  .wins li { padding-left: 18px; position: relative; font-size: .98rem; }
+  .wins li::before { content: ""; position: absolute; left: 0; top: .62em; width: 8px; height: 8px; background: var(--cobalt); border-radius: 2px; }
+  .stack { display: flex; flex-wrap: wrap; gap: 8px; }
+  .stack span { font-size: .85rem; border: 1px solid var(--line); padding: 4px 10px; border-radius: 6px; color: var(--muted); }
+
+  /* project table */
+  .more-title { font-size: 1.4rem; font-weight: 600; margin: 72px 0 18px; }
+  .ptable { width: 100%; border-collapse: collapse; font-size: .98rem; }
+  .ptable th { text-align: left; font-weight: 500; color: var(--muted); font-size: .88rem; padding: 0 16px 12px 0; border-bottom: 1.5px solid var(--ink); }
+  .ptable td { padding: 18px 16px 18px 0; border-bottom: 1px solid var(--line); vertical-align: top; }
+  .ptable td:first-child { font-family: "Bricolage Grotesque"; font-weight: 600; font-size: 1.12rem; white-space: nowrap; }
+  .ptable td:nth-child(2) { color: var(--muted); max-width: 52ch; }
+  .ptable td:last-child { font-size: .88rem; color: var(--muted); }
+  .tag { font-size: .8rem; color: var(--cobalt); font-weight: 600; display: block; font-family: "IBM Plex Sans"; }
+
+  /* experience */
+  .job { display: grid; grid-template-columns: 280px 1fr; gap: 48px; padding: 32px 0; border-top: 1px solid var(--line); }
+  .job:first-of-type { border-top: 0; padding-top: 0; }
+  .job-when { color: var(--muted); font-size: .95rem; }
+  .job h3 { font-size: 1.5rem; font-weight: 600; }
+  .job .org { color: var(--cobalt); font-weight: 500; margin: 4px 0 16px; }
+  .job ul { padding-left: 20px; display: grid; gap: 10px; max-width: 70ch; }
+  .job li::marker { color: var(--muted); }
+  .hl { background: linear-gradient(transparent 55%, var(--mark) 55%); color: inherit; padding: 0 2px; }
+  :root[data-theme="dark"] .hl { background: linear-gradient(transparent 55%, rgba(255,228,92,.35) 55%); }
+  @media (prefers-color-scheme: dark) { :root:not([data-theme="light"]) .hl { background: linear-gradient(transparent 55%, rgba(255,228,92,.35) 55%); } }
+
+  /* skills */
+  .skills { display: grid; grid-template-columns: repeat(4, 1fr); gap: 32px; }
+  .skills h3 { font-size: 1.1rem; font-weight: 600; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1.5px solid var(--ink); }
+  .skills ul { list-style: none; color: var(--muted); display: grid; gap: 6px; font-size: .96rem; }
+
+  .certs { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 48px; }
+  .cert { display: flex; flex-direction: column; padding: 18px 22px; background: var(--surface); border: 1px solid var(--line); border-radius: 10px; text-decoration: none; min-width: 240px; }
+  .cert:hover { border-color: var(--cobalt); }
+  .cert small { color: var(--muted); }
+
+  /* contact */
+  .contact { padding: 112px 0 64px; border-top: 1px solid var(--line); }
+  .contact h2 { font-size: clamp(2.4rem, 6vw, 4.4rem); font-weight: 800; max-width: 16ch; }
+  .contact .email { display: inline-block; margin-top: 28px; font-family: "Bricolage Grotesque"; font-size: clamp(1.3rem, 3vw, 2rem); font-weight: 600; color: var(--cobalt); text-underline-offset: 6px; word-break: break-all; }
+  footer { display: flex; justify-content: space-between; flex-wrap: wrap; gap: 12px; padding: 32px 0 48px; color: var(--muted); font-size: .9rem; border-top: 1px solid var(--line); margin-top: 80px; }
+  footer nav { display: flex; gap: 22px; }
+
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; gap: 48px; padding-top: 24px; }
+    .sec-head, .case, .job { grid-template-columns: 1fr; gap: 16px; }
+    .skills { grid-template-columns: 1fr 1fr; }
+    .wins { grid-template-columns: 1fr; }
+    .nav-links a:not(.keep) { display: none; }
+    .ptable thead { display: none; }
+    .ptable, .ptable tbody, .ptable tr, .ptable td { display: block; }
+    .ptable tr { padding: 18px 0; border-bottom: 1px solid var(--line); }
+    .ptable td { border: 0; padding: 2px 0; }
+  }
+  @media (max-width: 520px) { .skills { grid-template-columns: 1fr; } }
+  @media (prefers-reduced-motion: reduce) { .receipt { animation: none; } html { scroll-behavior: auto; } }
+
+  /* ---- v2: sections after hero ---- */
+  .case { grid-template-columns: 1fr; padding: 56px 0; }
+  .case-body { max-width: 760px; }
+  .live { display: inline-block; margin-top: 22px; font-weight: 600; color: var(--cobalt); text-underline-offset: 4px; }
+  
+  .case-meta { display: flex; flex-wrap: wrap; align-items: center; gap: 6px 14px; margin-bottom: 14px; }
+  .case-meta .kind { margin: 0; }
+  .case-meta span:not(.kind) + span:not(.kind)::before { content: ""; display: inline-block; width: 4px; height: 4px; border-radius: 50%; background: var(--line); margin-right: 14px; vertical-align: middle; }
+  .case h3 { font-size: clamp(1.9rem, 3.2vw, 2.5rem); }
+  .wins { grid-template-columns: 1fr; gap: 10px; }
+  .wins b { font-weight: 600; }
+  .figures { display: flex; gap: 36px; margin: 26px 0 4px; }
+  .figures dt { font-family: "Bricolage Grotesque"; font-weight: 800; font-size: 2.1rem; line-height: 1; color: var(--cobalt); }
+  .figures dd { font-size: .88rem; color: var(--muted); margin-top: 6px; }
+
+  .mock { background: var(--surface); border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 24px 48px -24px rgba(20,30,60,.28); overflow: hidden; font-size: .92rem; transform: rotate(-1deg); }
+  .case.flip .mock { transform: rotate(1deg); }
+  .mock-bar { display: flex; align-items: center; gap: 6px; padding: 10px 14px; border-bottom: 1px solid var(--line); background: var(--paper); }
+  .mock-bar i { width: 9px; height: 9px; border-radius: 50%; background: var(--line); }
+  .mock-bar span { margin-left: 10px; font: .78rem "IBM Plex Mono", monospace; color: var(--muted); }
+  .mock-pad { padding: 20px 22px 22px; display: grid; gap: 10px; }
+  .m-row { display: flex; justify-content: space-between; align-items: center; gap: 10px; }
+  .m-head { font-family: "Bricolage Grotesque"; font-weight: 600; font-size: 1.08rem; padding-bottom: 6px; }
+  .m-line { display: flex; justify-content: space-between; gap: 12px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .m-line s { color: var(--muted); margin-right: 6px; }
+  .m-line.muted { color: var(--muted); }
+  .m-total { font-weight: 600; font-size: 1.05rem; border-bottom: 0; }
+  .pill { font-size: .75rem; font-weight: 600; padding: 3px 9px; border-radius: 99px; background: var(--cobalt-soft); color: var(--cobalt); font-family: "IBM Plex Sans"; }
+  .pill.ok { background: rgba(31,164,99,.14); color: #138a50; }
+  .m-btn { flex: 1; text-align: center; padding: 10px; border-radius: 8px; border: 1px solid var(--line); font-weight: 600; font-size: .85rem; }
+  .m-btn.solid { background: var(--cobalt); color: #fff; border-color: var(--cobalt); }
+  .m-note { font-size: .8rem; color: #138a50; }
+  .m-hist { margin-top: 6px; padding: 12px 14px; background: var(--paper); border-radius: 8px; display: grid; gap: 6px; font-size: .84rem; color: var(--muted); border-left: 3px solid var(--cobalt); }
+  .m-hist b { color: var(--ink); font-weight: 600; }
+  .m-trip { display: grid; grid-template-columns: 70px 1fr 90px; align-items: center; gap: 10px; padding: 8px 0; border-bottom: 1px dashed var(--line); }
+  .m-trip span:not(.bar) { color: var(--muted); font-size: .86rem; }
+  .bar { height: 6px; border-radius: 6px; background: var(--paper); overflow: hidden; }
+  .bar i { display: block; height: 100%; background: var(--cobalt); border-radius: 6px; }
+
+  .more-head { display: flex; justify-content: space-between; align-items: end; flex-wrap: wrap; gap: 16px; margin: 72px 0 24px; padding-top: 48px; border-top: 1px solid var(--line); }
+  .more-head .more-title { margin: 0; }
+  .filters { display: flex; gap: 6px; flex-wrap: wrap; }
+  .filters button { font: 500 .9rem "IBM Plex Sans"; color: var(--muted); background: none; border: 1px solid var(--line); padding: 7px 14px; border-radius: 99px; cursor: pointer; }
+  .filters button.on { background: var(--ink); color: var(--paper); border-color: var(--ink); }
+  .pgrid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 0; border-top: 1.5px solid var(--ink); }
+  .p { padding: 24px 24px 26px 0; border-bottom: 1px solid var(--line); display: flex; flex-direction: column; gap: 8px; }
+  .p:not(:nth-child(3n+1)) { padding-left: 24px; border-left: 1px solid var(--line); }
+  .p[hidden] { display: none; }
+  .p h4 { font-family: "Bricolage Grotesque"; font-size: 1.25rem; font-weight: 600; letter-spacing: -.01em; }
+  .p p { color: var(--muted); font-size: .95rem; flex: 1; }
+  .p small { font-size: .82rem; color: var(--muted); }
+  .p .tag { font-size: .78rem; }
+  .pgrid.filtered .p { padding-left: 0; border-left: 0; }
+  .pgrid.filtered { grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); column-gap: 32px; }
+
+  .timeline { list-style: none; position: relative; }
+  .timeline .job { position: relative; }
+  .timeline .job-when { position: relative; padding-left: 24px; }
+  .timeline .job-when::before { content: ""; position: absolute; left: 0; top: .5em; width: 10px; height: 10px; border-radius: 50%; border: 2px solid var(--cobalt); background: var(--paper); }
+  .timeline .job:first-child .job-when::before { background: var(--cobalt); }
+  .timeline .job:not(:last-child) .job-when::after { content: ""; position: absolute; left: 6px; top: 1.6em; bottom: -60px; width: 2px; background: var(--line); }
+  .job b { font-weight: 600; }
+  .job-note { color: var(--muted); font-size: .95rem; margin: -8px 0 16px; }
+
+  .skills ul { gap: 12px; }
+  .skills li { display: flex; flex-direction: column; }
+  .skills li b { color: var(--ink); font-weight: 500; }
+  .skills li span { font-size: .84rem; color: var(--muted); }
+
+  .contact { display: grid; grid-template-columns: 1.3fr .7fr; gap: 56px; align-items: end; }
+  .contact .actions { margin-top: 28px; }
+  .fit { list-style: none; display: grid; gap: 0; border-top: 1.5px solid var(--ink); }
+  .fit li { display: flex; flex-direction: column; padding: 14px 0; border-bottom: 1px solid var(--line); }
+  .fit b { font-weight: 600; font-size: .9rem; }
+  .fit span { color: var(--muted); }
+
+  @media (max-width: 900px) {
+    .case { grid-template-columns: 1fr; gap: 32px; padding: 48px 0; }
+    .case.flip .case-body { order: 0; }
+    .mock, .case.flip .mock { transform: none; }
+    .pgrid, .pgrid.filtered { grid-template-columns: 1fr; }
+    .p, .p:not(:nth-child(3n+1)) { padding: 20px 0; border-left: 0; }
+    .contact { grid-template-columns: 1fr; }
+    .timeline .job:not(:last-child) .job-when::after { display: none; }
+    .figures { gap: 24px; }
+  }
+  @media (prefers-reduced-motion: reduce) { .mock { transform: none; } }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="nav">
+    <a href="#top" class="nav-name">Justine Nebres</a>
+    <nav class="nav-links" aria-label="Main">
+      <a href="#work">Work</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="./assets/docs/Justine-Nebres-Resume.pdf" download class="keep">Resume</a>
+      <button class="theme-btn" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
+    </nav>
+  </header>
+
+  <main id="top">
+    <div class="hero">
+      <div>
+        <p class="status">Open to full-time and freelance roles</p>
+        <h1>I build the software businesses run on.</h1>
+        <p class="hero-lede">
+          Full-stack developer working in <strong>Angular and Django</strong>. I ship multi-tenant SaaS,
+          point-of-sale systems, booking engines, and offline-first apps used by real merchants every day.
+        </p>
+        <div class="actions">
+          <a class="btn btn-primary" href="#work">See my work</a>
+          <a class="btn btn-ghost" href="mailto:justinenebres80@gmail.com">Email me</a>
+        </div>
+        <p class="hero-facts">
+          <span><b>340+</b> commits on a production super app</span>
+          <span><b>12</b> shipped products</span>
+          <span><b>Cum Laude</b>, BS Computer Science</span>
+        </p>
+      </div>
+
+      <div class="printer" aria-label="Summary of Justine Nebres">
+        <div class="printer-slot"></div>
+        <div class="receipt-clip">
+          <div class="receipt">
+            <img src="./assets/images/profile.jpg" alt="Portrait of Justine Nebres" />
+            <div class="center big">JUSTINE NEBRES</div>
+            <div class="center">Software Developer<br />Albay, Philippines</div>
+            <hr />
+            <div class="row"><span>Angular / TS</span><span>x1</span></div>
+            <div class="row"><span>Django REST</span><span>x1</span></div>
+            <div class="row"><span>PostgreSQL</span><span>x1</span></div>
+            <div class="row"><span>Docker / NGINX</span><span>x1</span></div>
+            <div class="row"><span>Capacitor apps</span><span>x1</span></div>
+            <hr />
+            <div class="row"><span>Experience</span><span>2024–now</span></div>
+            <div class="row"><span>Availability</span><span>Open to offers</span></div>
+            <hr />
+            <div class="row total"><span>STATUS</span><span>OPEN TO WORK</span></div>
+            <div class="barcode" aria-hidden="true"></div>
+            <div class="center" style="margin-top:8px">Thank you for visiting</div>
+          </div>
         </div>
       </div>
-    </header>
+    </div>
 
-    <main id="top">
-      <section class="mx-auto max-w-7xl px-6 pb-20 pt-16 lg:px-8 lg:pb-28 lg:pt-24">
-        <div class="grid items-center gap-12 lg:grid-cols-[1.15fr_0.85fr]">
-          <div class="reveal">
-            <p class="mb-4 inline-flex rounded-full border border-cyan-400/40 bg-cyan-400/10 px-4 py-1 text-sm font-semibold text-cyan-700 dark:text-cyan-300">
-              Software Developer • Full-Stack • AI Automation
-            </p>
-            <h1 class="font-space max-w-4xl text-4xl font-bold leading-tight text-slate-950 md:text-6xl dark:text-white">
-              I build scalable products that turn complex workflows into fast, usable software.
-            </h1>
-            <p class="mt-6 max-w-2xl text-lg leading-8 text-slate-600 dark:text-slate-300">
-              I’m Justine Nebres, a developer focused on Angular, Django, and modern business systems.
-              I create responsive web apps, multi-tenant platforms, offline-first tools, and AI-powered
-              experiences for both employers and clients.
-            </p>
-            <div class="mt-8 flex flex-wrap gap-4">
-              <a
-                href="#projects"
-                class="rounded-full bg-slate-950 px-6 py-3 text-sm font-semibold text-white transition hover:bg-cyan-500 dark:bg-cyan-400 dark:text-slate-950"
-              >
-                View Selected Projects
-              </a>
-              <a
-                href="#contact"
-                class="rounded-full border border-slate-300 px-6 py-3 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-700 dark:text-slate-200"
-              >
-                Let’s Work Together
-              </a>
-            </div>
-            <div class="mt-10 grid gap-4 sm:grid-cols-3">
-              <div class="metric-card">
-                <span class="metric-number">9+</span>
-                <span class="metric-label">Featured projects across SaaS, AI, and business tools</span>
-              </div>
-              <div class="metric-card">
-                <span class="metric-number">2024+</span>
-                <span class="metric-label">Professional software development experience</span>
-              </div>
-              <div class="metric-card">
-                <span class="metric-number">Multi-stack</span>
-                <span class="metric-label">Angular, Django, Docker, Tailwind, PostgreSQL</span>
-              </div>
-            </div>
-          </div>
+    <section id="work">
+      <div class="sec-head">
+        <h2>Selected work</h2>
+        <p>Three systems that handle real bookings, real ledgers, and real deliveries. I worked on each one from the database schema to the screen.</p>
+      </div>
 
-          <div class="reveal relative">
-            <div class="hero-panel rounded-[2rem] border border-white/60 bg-white/75 p-6 shadow-glow backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/70">
-              <div class="hero-profile-wrap">
-                <div class="avatar-ring avatar-ring-large">
-                  <div class="avatar-core avatar-core-large">
-                    <img src="./assets/images/profile.jpg" alt="Portrait of Justine Nebres" class="avatar-image" />
-                  </div>
-                </div>
-                <div class="profile-glow"></div>
-              </div>
-              <div class="flex items-center gap-5">
-                <div>
-                  <p class="text-sm font-semibold uppercase tracking-[0.3em] text-cyan-600 dark:text-cyan-300">
-                    Available for
-                  </p>
-                  <h2 class="mt-2 text-2xl font-bold text-slate-950 dark:text-white">Full-time roles and freelance builds</h2>
-                </div>
-              </div>
-              <div class="mt-8 space-y-4">
-                <div class="info-chip">
-                  <span>Email</span>
-                  <a href="mailto:justinenebres80@gmail.com">justinenebres80@gmail.com</a>
-                </div>
-                <div class="info-chip">
-                  <span>Location</span>
-                  <p>Albay, Philippines</p>
-                </div>
-                <div class="info-chip">
-                  <span>Focus</span>
-                  <p>Business systems, automation, AI tooling, and polished frontends</p>
-                </div>
-              </div>
-              <div class="mt-8 grid gap-3 sm:grid-cols-2">
-                <a
-                  href="https://github.com/JustineQinLao"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="rounded-2xl border border-slate-200 px-4 py-4 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-800 dark:text-slate-200"
-                >
-                  GitHub
-                </a>
-                <a
-                  href="https://www.linkedin.com/in/justine-john-nebres-766562294"
-                  target="_blank"
-                  rel="noreferrer"
-                  class="rounded-2xl border border-slate-200 px-4 py-4 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-800 dark:text-slate-200"
-                >
-                  LinkedIn
-                </a>
-              </div>
-            </div>
-          </div>
+      <article class="case">
+        <div class="case-body">
+          <div class="case-meta"><span class="kind">Tourism platform</span><span>Synergia BPO, assigned to Pinkberry BPO Solutions</span><span>IT Lead</span></div>
+          <h3>Viaje Super App</h3>
+          <p>Travelers book tours, ATV rides, tickets, stays, guides, and vehicles from many merchants in one cart. Every merchant runs in its own database schema with its own calendar, POS, staff, and payouts.</p>
+          <dl class="figures">
+            <div><dt>340+</dt><dd>commits shipped</dd></div>
+            <div><dt>6</dt><dd>booking types in one cart</dd></div>
+            <div><dt>1</dt><dd>schema per merchant</dd></div>
+          </dl>
+          <ul class="wins">
+            <li><b>Checkout engine.</b> Per-guest and per-booking prices, fees, bundles, and rescheduling, all re-checked on the server.</li>
+            <li><b>Merchant POS.</b> Walk-in sales with Bluetooth and USB receipt printers and QR pass scanning.</li>
+            <li><b>Security.</b> 2FA, AES-GCM encrypted login, role-based access, and audit logs.</li>
+            <li><b>Speed.</b> Live SSE notifications, and removed N+1 queries and duplicate API calls.</li>
+          </ul>
+          <div class="stack"><span>Angular 21</span><span>Django REST</span><span>django-tenants</span><span>PostgreSQL</span><span>Redis</span><span>Docker</span></div>
+          <a class="live" href="https://www.viajekita.com/" target="_blank" rel="noreferrer">Visit viajekita.com</a>
         </div>
-      </section>
+      </article>
 
-      <section id="about" class="mx-auto max-w-7xl px-6 py-10 lg:px-8">
-        <div class="reveal rounded-[2rem] border border-slate-200/70 bg-white/75 p-8 shadow-glow backdrop-blur-xl dark:border-slate-800 dark:bg-slate-900/70">
-          <div class="grid gap-10 lg:grid-cols-[1.1fr_0.9fr]">
-            <div>
-              <p class="section-kicker">About</p>
-              <h2 class="section-title">A developer who likes turning hard problems into clear products.</h2>
-              <p class="section-copy">
-                My work spans multi-tenant SaaS platforms, offline-ready tools, workflow automation, and AI-assisted apps.
-                I enjoy building systems that are clean on the inside and intuitive on the outside, with strong attention to
-                performance, architecture, and real-world usability.
-              </p>
-            </div>
-            <div class="grid gap-4 sm:grid-cols-2">
-              <div class="glass-card">
-                <h3>What I bring</h3>
-                <p>Full-stack delivery from architecture and APIs to responsive UI, deployment, and iteration.</p>
-              </div>
-              <div class="glass-card">
-                <h3>Preferred stack</h3>
-                <p>Angular, Django REST, Tailwind CSS, PostgreSQL, Docker, and modern deployment workflows.</p>
-              </div>
-              <div class="glass-card">
-                <h3>Degree</h3>
-                <p>BS Computer Science, Bicol University College of Science, Cum Laude.</p>
-              </div>
-              <div class="glass-card">
-                <h3>Interests</h3>
-                <p>AI tooling, automation systems, product design, offline-first experiences, and workflow-heavy platforms.</p>
-              </div>
-            </div>
-          </div>
+      <article class="case flip">
+        <div class="case-body">
+          <div class="case-meta"><span class="kind">Accounting SaaS</span><span>Synergia BPO Solutions</span><span>Full-stack developer</span></div>
+          <h3>eLibromo</h3>
+          <p>A bookkeeping platform where each company gets its own subdomain and schema. It tracks sales, receivables, purchases, and payables, then builds the reports accountants file taxes with.</p>
+          <ul class="wins">
+            <li><b>Change history.</b> Every edit to sales, receivables, purchases, and payables is logged with who changed what.</li>
+            <li><b>2FA rollout.</b> Phased by role, with backup codes and login throttling.</li>
+            <li><b>User profiles</b> and a Cloudflare Tunnel staging environment.</li>
+          </ul>
+          <div class="stack"><span>Angular 18</span><span>Django REST</span><span>PostgreSQL</span><span>NGINX</span><span>Cloudflare Tunnel</span></div>
         </div>
-      </section>
+      </article>
 
-      <section id="experience" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="mb-12 reveal">
-          <p class="section-kicker">Experience</p>
-          <h2 class="section-title">Professional work focused on production systems and client delivery.</h2>
+      <article class="case">
+        <div class="case-body">
+          <div class="case-meta"><span class="kind">Water station SaaS</span><span>Personal product</span><span>Solo build</span></div>
+          <h3>AquaRush</h3>
+          <p>Water refilling stations still track gallons in notebooks. AquaRush replaces that with meter readings, container counts, driver dispatch, and customer orders.</p>
+          <ul class="wins">
+            <li><b>Self-serve signup.</b> A new station gets its subdomain and schema, built in the background by a Redis job queue.</li>
+            <li><b>Driver returns.</b> Containers out and back are reconciled per trip.</li>
+            <li><b>Tested.</b> End-to-end flows run in Playwright.</li>
+          </ul>
+          <div class="stack"><span>Angular 22</span><span>Django REST</span><span>Redis / RQ</span><span>Tailwind 4</span><span>Playwright</span></div>
         </div>
-        <div class="grid gap-8 lg:grid-cols-2">
-          <article class="reveal timeline-card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Software Developer</h3>
-                <p class="mt-1 text-base font-medium text-cyan-600 dark:text-cyan-300">Synergia BPO Solutions Inc.</p>
-              </div>
-              <p class="timeline-date">Feb 2024 - Present</p>
-            </div>
-            <ul class="timeline-list">
-              <li>Built and maintained multi-tenant platforms with Angular and Django for client-facing business workflows.</li>
-              <li>Developed responsive frontend systems using Tailwind CSS and reusable component patterns.</li>
-              <li>Implemented REST APIs, role-based access control, workflow automation, and real-time notifications.</li>
-              <li>Handled containerized deployment and delivery using Docker, NGINX, and cloud-ready configurations.</li>
+      </article>
+
+      <div class="more-head">
+        <h3 class="more-title">More projects</h3>
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button type="button" class="on" data-f="all">All 9</button>
+          <button type="button" data-f="work">Work</button>
+          <button type="button" data-f="freelance">Freelance</button>
+          <button type="button" data-f="personal">Personal</button>
+        </div>
+      </div>
+      <div class="pgrid">
+        <article class="p" data-k="freelance"><span class="tag">Freelance</span><h4>BRB Pickleball</h4><p>Offline Android app for a pickleball venue: court booking, rentals, and payments, with encrypted daily backups synced to Google Sheets.</p><small>React 19, Ionic, Capacitor, SQLite</small></article>
+        <article class="p" data-k="personal"><span class="tag">Personal</span><h4>InkForge</h4><p>AI writing studio for long-form fiction, with chapter pipelines, canon extraction, and streamed job progress.</p><small>Angular 21, NestJS, Prisma, Redis</small></article>
+        <article class="p" data-k="freelance"><span class="tag">Freelance</span><h4>POS CoffeeShop</h4><p>Offline coffee shop POS with stock, customer credit (utang), and receipt printing. Runs on web, Android, and Windows.</p><small>Angular 19, Dexie, Capacitor, Electron</small></article>
+        <article class="p" data-k="work"><span class="tag">Work</span><h4>TodaApp</h4><p>Tricycle dispatch and booking for passengers, drivers, and dispatchers, with a companion WordPress site.</p><small>Angular 19, PocketBase, PHP, PWA</small></article>
+        <article class="p" data-k="work"><span class="tag">Work</span><h4>Lexify</h4><p>Client onboarding for law firms: inquiries, appointments, engagements, tasks, and calendars.</p><small>Angular 19, Django, FullCalendar</small></article>
+        <article class="p" data-k="personal"><span class="tag">Personal</span><h4>TaskHero</h4><p>Barangay task marketplace with role-based portals, wallets, ratings, and admin tools.</p><small>Angular 21, DRF, JWT, PostgreSQL</small></article>
+        <article class="p" data-k="personal"><span class="tag">Personal</span><h4>Micro Website Builder</h4><p>Upload an annotated HTML template and get an editable client site with reusable sections.</p><small>Angular 21, Django 5, BeautifulSoup</small></article>
+        <article class="p" data-k="personal"><span class="tag">Personal</span><h4>Memory Booth</h4><p>Android photo booth for events, with native camera, pricing, and transaction tracking.</p><small>Angular, Capacitor, IndexedDB</small></article>
+        <article class="p" data-k="freelance"><span class="tag">Freelance</span><h4>Talas</h4><p>Flutter app that teaches the Filipino alphabet and vocabulary, with saved learner progress.</p><small>Flutter, Dart</small></article>
+      </div>
+    </section>
+
+    <section id="experience">
+      <div class="sec-head">
+        <h2>Experience</h2>
+        <p>Production work on platforms with paying merchants and real money moving through them.</p>
+      </div>
+      <ol class="timeline">
+        <li class="job">
+          <div class="job-when">Feb 2024 – present</div>
+          <div>
+            <h3>Software Developer</h3>
+            <p class="org">Synergia BPO Solutions Inc.</p>
+            <p class="job-note">Assigned to projects across the group's companies, including Pinkberry BPO Solutions.</p>
+            <ul>
+              <li><b>IT Lead, Viaje Super App</b> (Pinkberry BPO Solutions): <mark class="hl">340+ shipped commits</mark>. Built the pricing and checkout engine with server-side price validation.</li>
+              <li>Built Viaje's merchant tools: walk-in POS, thermal printing, QR scanning, dashboards, and void authorization.</li>
+              <li><b>eLibromo</b>: ledger change history, user profiles, and a phased 2FA rollout.</li>
+              <li>Delivered client platforms including <b>Lexify</b> for law firms and <b>TodaApp</b> for transport dispatch.</li>
+              <li>Hardened auth across products with TOTP and email OTP, encrypted payloads, and role-based access.</li>
             </ul>
-          </article>
-          <article class="reveal timeline-card">
-            <div class="flex items-start justify-between gap-6">
-              <div>
-                <h3 class="text-2xl font-bold text-slate-950 dark:text-white">Education and Training</h3>
-                <p class="mt-1 text-base font-medium text-cyan-600 dark:text-cyan-300">Bicol University College of Science</p>
-              </div>
-              <p class="timeline-date">2020 - 2023</p>
-            </div>
-            <ul class="timeline-list">
-              <li>Graduated with a BS in Computer Science as Cum Laude and Dean’s Lister.</li>
-              <li>Completed a thesis on sweetpotato variety classification using ResNet50 CNN and TensorFlow Lite.</li>
-              <li>Earned wireless networking certifications including OCNA Wireless and TP-Link Network Associate.</li>
+          </div>
+        </li>
+        <li class="job">
+          <div class="job-when">2020 – 2023</div>
+          <div>
+            <h3>BS Computer Science</h3>
+            <p class="org">Bicol University College of Science</p>
+            <ul>
+              <li>Graduated <mark class="hl">Cum Laude</mark> and Dean's Lister.</li>
+              <li>Thesis: sweetpotato variety classification with a ResNet50 CNN, running on-device with TensorFlow Lite.</li>
             </ul>
-          </article>
-        </div>
-      </section>
-
-      <section id="projects" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="mb-12 reveal">
-          <p class="section-kicker">Selected Projects</p>
-          <h2 class="section-title">Selected projects that show range, product thinking, and technical depth.</h2>
-          <p class="section-copy max-w-3xl">
-            I prioritized complete, non-redundant work from your personal and official folders to keep this portfolio focused and credible.
-          </p>
-        </div>
-
-        <div class="grid gap-6 lg:grid-cols-2">
-          <article class="reveal project-card project-card-featured">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Tourism Platform</p>
-              <span class="project-badge">Official</span>
-            </div>
-            <h3>Viaje Super App</h3>
-            <p>
-              A multi-service booking ecosystem for accommodations, tours, guides, vehicles, and ticketing with multi-tenant
-              architecture, admin workflows, PWA support, modular Angular delivery, and a companion vlog/blog experience
-              powered through WordPress.
-            </p>
-            <div class="tag-row">
-              <span>Angular 21</span><span>Django REST</span><span>WordPress</span><span>PHP</span><span>PostgreSQL</span><span>Docker</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Civic Marketplace</p>
-              <span class="project-badge">Personal</span>
-            </div>
-            <h3>TaskHero Platform</h3>
-            <p>
-              A barangay-focused task marketplace with role-based portals, task lifecycle management, wallet flows,
-              ratings, reports, and admin tools designed for structured community service workflows.
-            </p>
-            <div class="tag-row">
-              <span>Angular 21</span><span>Django</span><span>DRF</span><span>JWT</span><span>PostgreSQL</span><span>Docker</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Transport Platform</p>
-              <span class="project-badge">Official</span>
-            </div>
-            <h3>TodaApp</h3>
-            <p>
-              A role-based transport dispatch and booking platform with passenger, driver, dispatcher, and admin flows,
-              route operations, assignments, transactions, mobile-friendly progressive web app support, and a companion
-              WordPress website for content and web presence.
-            </p>
-            <div class="tag-row">
-              <span>Angular 19</span><span>PocketBase</span><span>WordPress</span><span>PHP</span><span>Tailwind</span><span>PWA</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Offline POS</p>
-              <span class="project-badge">Personal</span>
-            </div>
-            <h3>POS CoffeeShop</h3>
-            <p>
-              An offline-first point of sale system for small businesses with inventory, receipts, backups, reporting,
-              and cross-platform support across web, Android, and desktop.
-            </p>
-            <div class="tag-row">
-              <span>Angular 19</span><span>Tailwind CSS</span><span>IndexedDB</span><span>Capacitor</span><span>Electron</span><span>Docker</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Legal SaaS</p>
-              <span class="project-badge">Official</span>
-            </div>
-            <h3>Lexify</h3>
-            <p>
-              A legal client onboarding platform for law firms with inquiries, appointments, engagement setup, task flows,
-              service intake, permissions, calendars, and structured dashboard workflows.
-            </p>
-            <div class="tag-row">
-              <span>Angular 19</span><span>Django</span><span>PostgreSQL</span><span>Angular Material</span><span>Docker</span><span>FullCalendar</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Website Builder</p>
-              <span class="project-badge">Personal</span>
-            </div>
-            <h3>Micro Website Builder</h3>
-            <p>
-              A CMS-style website builder that lets admins upload annotated HTML templates and turn them into editable client
-              sites with structured content controls and reusable page sections.
-            </p>
-            <div class="tag-row">
-              <span>Angular 21</span><span>Django 5</span><span>DRF</span><span>Tailwind 4</span><span>PostgreSQL</span><span>BeautifulSoup</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Mobile Product</p>
-              <span class="project-badge">Personal</span>
-            </div>
-            <h3>Memory Booth</h3>
-            <p>
-              An Android-first photo booth app with native camera access, pricing logic, admin controls, transaction tracking,
-              and event-oriented flow for real business operations.
-            </p>
-            <div class="tag-row">
-              <span>Angular</span><span>Capacitor</span><span>Tailwind</span><span>IndexedDB</span><span>Docker</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">Learning App</p>
-              <span class="project-badge">Personal</span>
-            </div>
-            <h3>Talas</h3>
-            <p>
-              A Flutter-based mobile learning app focused on the Filipino alphabet and vocabulary, with guided onboarding,
-              avatar selection, learner personalization, and persistent progress state using local storage.
-            </p>
-            <div class="tag-row">
-              <span>Flutter</span><span>Dart</span><span>SharedPreferences</span><span>Mobile UI</span><span>Android</span><span>iOS</span>
-            </div>
-          </article>
-
-          <article class="reveal project-card project-card-featured">
-            <div class="flex items-center justify-between gap-4">
-              <p class="project-type">AI Product Studio</p>
-              <span class="project-badge">Personal</span>
-            </div>
-            <h3>InkForge</h3>
-            <p>
-              An AI writing studio for long-form fiction with chapter pipelines, worldbuilding tools, canon extraction,
-              async job queues, progress streaming, and version-aware content workflows.
-            </p>
-            <div class="tag-row">
-              <span>Angular 21</span><span>NestJS</span><span>PostgreSQL</span><span>Prisma</span><span>Redis</span>
-            </div>
-          </article>
-        </div>
-      </section>
-
-      <section id="skills" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="mb-12 reveal">
-          <p class="section-kicker">Skills</p>
-          <h2 class="section-title">Tools I use to design, build, ship, and improve products.</h2>
-        </div>
-        <div class="grid gap-6 md:grid-cols-2 xl:grid-cols-4">
-          <div class="reveal skill-card">
-            <h3>Frontend</h3>
-            <p>Angular, TypeScript, Tailwind CSS, Flowbite, Angular Material, responsive UI, component architecture.</p>
           </div>
-          <div class="reveal skill-card">
-            <h3>Backend</h3>
-            <p>Django, Django REST Framework, NestJS, PHP, WordPress, JWT auth, multi-tenant systems, SQL, PostgreSQL, PocketBase.</p>
-          </div>
-          <div class="reveal skill-card">
-            <h3>DevOps</h3>
-            <p>Docker, Docker Compose, NGINX, EC2 basics, containerized deployments, environment setup, production delivery.</p>
-          </div>
-          <div class="reveal skill-card">
-            <h3>AI and Automation</h3>
-            <p>LLM workflows, MCP, TensorFlow, TensorFlow Lite, Redis queues, speech and automation integrations, prompt design.</p>
-          </div>
-        </div>
-      </section>
+        </li>
+      </ol>
+    </section>
 
-      <section id="certifications" class="mx-auto max-w-7xl px-6 py-20 lg:px-8">
-        <div class="mb-12 reveal">
-          <p class="section-kicker">Certifications</p>
-          <h2 class="section-title">View each certificate on demand.</h2>
-          <p class="section-copy max-w-3xl">
-            Use the buttons below to open a specific certificate without cluttering the page.
-          </p>
-        </div>
-        <div class="grid gap-6 lg:grid-cols-[0.8fr_1.2fr]">
-          <div class="reveal certifications-panel">
-            <button
-              type="button"
-              class="certificate-button active"
-              data-certificate-title="OCNA Wireless"
-              data-certificate-file="./assets/docs/OCNA Wireless_Justine John Nebres.pdf"
-            >
-              OCNA Wireless
-            </button>
-            <button
-              type="button"
-              class="certificate-button"
-              data-certificate-title="TPNA Enterprise Wireless"
-              data-certificate-file="./assets/docs/TPNA Enterprise Wireless_Justine John Nebres.pdf"
-            >
-              TPNA Enterprise Wireless
-            </button>
-          </div>
-          <div class="reveal certificate-viewer-card">
-            <div class="certificate-viewer-head">
-              <div>
-                <p class="section-kicker">Selected</p>
-                <h3 id="certificate-title" class="font-space text-2xl font-bold text-slate-950 dark:text-white">
-                  OCNA Wireless
-                </h3>
-              </div>
-              <a
-                id="certificate-open-link"
-                href="./assets/docs/OCNA Wireless_Justine John Nebres.pdf"
-                target="_blank"
-                rel="noreferrer"
-                class="rounded-full border border-slate-300 px-4 py-2 text-sm font-semibold text-slate-700 transition hover:border-cyan-400 hover:text-cyan-500 dark:border-slate-700 dark:text-slate-200"
-              >
-                Open in New Tab
-              </a>
-            </div>
-            <iframe
-              id="certificate-frame"
-              src="./assets/docs/OCNA Wireless_Justine John Nebres.pdf"
-              title="Certificate Viewer"
-              class="certificate-frame"
-              loading="lazy"
-            ></iframe>
-          </div>
-        </div>
-      </section>
+    <section id="skills">
+      <div class="sec-head">
+        <h2>Skills</h2>
+        <p>Each skill lists where I've used it, so you can check the work behind it.</p>
+      </div>
+      <div class="skills">
+        <div><h3>Frontend</h3><ul>
+          <li><b>Angular</b><span>Viaje, eLibromo, AquaRush, +7</span></li>
+          <li><b>React, Ionic</b><span>BRB Pickleball</span></li>
+          <li><b>TypeScript</b><span>Every web project</span></li>
+          <li><b>Tailwind, PrimeNG</b><span>AquaRush, Viaje</span></li>
+        </ul></div>
+        <div><h3>Backend</h3><ul>
+          <li><b>Django REST</b><span>Viaje, eLibromo, AquaRush, Lexify</span></li>
+          <li><b>django-tenants</b><span>Viaje, eLibromo, AquaRush</span></li>
+          <li><b>PostgreSQL, Redis</b><span>Viaje, AquaRush, InkForge</span></li>
+          <li><b>NestJS, PHP</b><span>InkForge, TodaApp</span></li>
+        </ul></div>
+        <div><h3>Delivery</h3><ul>
+          <li><b>Docker, NGINX</b><span>Viaje, eLibromo, Lexify</span></li>
+          <li><b>Cloudflare Tunnel</b><span>eLibromo staging</span></li>
+          <li><b>Capacitor, Electron</b><span>POS CoffeeShop, Memory Booth</span></li>
+          <li><b>Playwright, Vitest</b><span>AquaRush, BRB Pickleball</span></li>
+        </ul></div>
+        <div><h3>AI</h3><ul>
+          <li><b>LLM workflows</b><span>InkForge</span></li>
+          <li><b>MCP</b><span>Tooling and automation</span></li>
+          <li><b>TensorFlow Lite</b><span>Thesis</span></li>
+          <li><b>Job queues</b><span>InkForge, AquaRush</span></li>
+        </ul></div>
+      </div>
+      <div class="certs">
+        <a class="cert" href="./assets/docs/OCNA Wireless_Justine John Nebres.pdf" target="_blank" rel="noreferrer"><strong>OCNA Wireless</strong><small>View certificate (PDF)</small></a>
+        <a class="cert" href="./assets/docs/TPNA Enterprise Wireless_Justine John Nebres.pdf" target="_blank" rel="noreferrer"><strong>TPNA Enterprise Wireless</strong><small>View certificate (PDF)</small></a>
+      </div>
+    </section>
 
-      <section id="contact" class="mx-auto max-w-7xl px-6 pb-24 pt-10 lg:px-8">
-        <div class="reveal rounded-[2rem] border border-cyan-400/30 bg-slate-950 p-10 text-white shadow-glow dark:border-cyan-300/20 dark:bg-slate-900">
-          <p class="section-kicker text-cyan-300">Contact</p>
-          <h2 class="font-space text-3xl font-bold md:text-4xl">Open to roles, collaborations, and ambitious product work.</h2>
-          <p class="mt-4 max-w-2xl text-base leading-8 text-slate-300">
-            If you’re hiring or need a developer who can build from concept to deployment, I’d be glad to connect.
-          </p>
-          <div class="mt-8 flex flex-wrap gap-4">
-            <a
-              href="mailto:justinenebres80@gmail.com"
-              class="rounded-full bg-cyan-400 px-6 py-3 text-sm font-semibold text-slate-950 transition hover:bg-cyan-300"
-            >
-              justinenebres80@gmail.com
-            </a>
-            <a
-              href="https://github.com/JustineQinLao"
-              target="_blank"
-              rel="noreferrer"
-              class="rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
-            >
-              GitHub
-            </a>
-            <a
-              href="https://www.linkedin.com/in/justine-john-nebres-766562294"
-              target="_blank"
-              rel="noreferrer"
-              class="rounded-full border border-slate-700 px-6 py-3 text-sm font-semibold text-white transition hover:border-cyan-400 hover:text-cyan-300"
-            >
-              LinkedIn
-            </a>
-          </div>
+    <div class="contact" id="contact">
+      <div>
+        <h2>Hiring for a full-stack role? Let's talk.</h2>
+        <a class="email" href="mailto:justinenebres80@gmail.com">justinenebres80@gmail.com</a>
+        <div class="actions">
+          <a class="btn btn-primary" href="mailto:justinenebres80@gmail.com">Email me</a>
+          <a class="btn btn-ghost" href="./assets/docs/Justine-Nebres-Resume.pdf" download>Download resume</a>
         </div>
-      </section>
-    </main>
+      </div>
+      <ul class="fit">
+        <li><b>Roles</b><span>Full-time full-stack or frontend, plus freelance builds</span></li>
+        <li><b>Work setup</b><span>Remote, or on-site in Albay</span></li>
+        <li><b>Availability</b><span>Open to offers</span></li>
+      </ul>
+    </div>
+  </main>
 
-    <script src="./assets/js/script.js"></script>
-  </body>
+  <footer>
+    <span>Justine Nebres, Albay, Philippines</span>
+    <nav>
+      <a href="https://github.com/JustineQinLao" target="_blank" rel="noreferrer">GitHub</a>
+      <a href="https://www.linkedin.com/in/justine-john-nebres-766562294" target="_blank" rel="noreferrer">LinkedIn</a>
+      <a href="./assets/docs/Justine-Nebres-Resume.pdf" download>Resume</a>
+    </nav>
+  </footer>
+</div>
+<script>
+  (function () {
+    const root = document.documentElement;
+    try { const t = localStorage.getItem("theme"); if (t) root.dataset.theme = t; } catch (e) {}
+    document.getElementById("theme").addEventListener("click", function () {
+      const dark = root.dataset.theme ? root.dataset.theme === "dark" : matchMedia("(prefers-color-scheme: dark)").matches;
+      root.dataset.theme = dark ? "light" : "dark";
+      try { localStorage.setItem("theme", root.dataset.theme); } catch (e) {}
+    });
+    document.querySelectorAll(".filters button").forEach(function (b) {
+      b.addEventListener("click", function () {
+        document.querySelectorAll(".filters button").forEach(function (x) { x.classList.toggle("on", x === b); });
+        var f = b.dataset.f, grid = document.querySelector(".pgrid");
+        grid.classList.toggle("filtered", f !== "all");
+        grid.querySelectorAll(".p").forEach(function (p) { p.hidden = f !== "all" && p.dataset.k !== f; });
+      });
+    });
+  })();
+</script>
+</body>
 </html>
