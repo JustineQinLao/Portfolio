@@ -312,7 +312,7 @@
     <section id="work">
       <div class="sec-head">
         <h2>Selected work</h2>
-        <p>Three systems that handle real bookings, real ledgers, and real deliveries. I worked on each one from the database schema to the screen.</p>
+        <p>Three systems that handle real bookings, real ledgers, and real deliveries, plus the AI developer tool I build them with. I worked on each one from the database schema to the screen.</p>
       </div>
 
       <article class="case">
@@ -361,6 +361,27 @@
             <li><b>Tested.</b> End-to-end flows run in Playwright.</li>
           </ul>
           <div class="stack"><span>Angular 22</span><span>Django REST</span><span>Redis / RQ</span><span>Tailwind 4</span><span>Playwright</span></div>
+        </div>
+      </article>
+
+      <article class="case flip">
+        <div class="case-body">
+          <div class="case-meta"><span class="kind">AI developer tool</span><span>Personal product</span><span>Solo build</span></div>
+          <h3>JustCode</h3>
+          <p>A VS Code extension that turns a task board into a team of AI coders. Each task runs Claude Code in its own git branch and worktree. An AI reviewer tests the work, and finished tasks merge with one click.</p>
+          <dl class="figures">
+            <div><dt>140+</dt><dd>commits shipped</dd></div>
+            <div><dt>97</dt><dd>automated tests</dd></div>
+            <div><dt>1</dt><dd>branch per task</dd></div>
+          </dl>
+          <ul class="wins">
+            <li><b>Parallel agents.</b> Every task gets its own branch and worktree, so tasks run side by side without touching each other's files.</li>
+            <li><b>Review loop.</b> The project's own tests run after each turn. Failures go back to Claude before an AI reviewer checks the change.</li>
+            <li><b>Plan with Claude.</b> One goal becomes sprints of small tasks, each with a "Done when" checklist.</li>
+            <li><b>Phone control.</b> A token-protected local server and an Android app for approving and steering tasks away from the desk.</li>
+          </ul>
+          <div class="stack"><span>TypeScript</span><span>VS Code API</span><span>Claude Agent SDK</span><span>git worktrees</span><span>Kotlin / Android</span></div>
+          <a class="live" href="https://github.com/JustineQinLao/just-code-ai" target="_blank" rel="noreferrer">View on GitHub</a>
         </div>
       </article>
 
